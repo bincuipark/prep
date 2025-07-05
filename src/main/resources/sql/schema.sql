@@ -215,37 +215,3 @@ create table if not exists login_history comment '로그인 이력' (
     primary key (id),
     foreign key (user_id) references user_account (id)
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

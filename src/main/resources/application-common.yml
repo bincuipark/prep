@@ -1,0 +1,9 @@
+# 공통 환경 설정 파일
+
+spring:
+  config:
+    activate:
+      on-profile:
+        - common
+
+

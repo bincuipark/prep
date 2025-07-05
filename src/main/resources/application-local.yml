@@ -1,0 +1,7 @@
+# 기본 환경 설정
+
+spring:
+  config:
+    activate:
+      on-profile:
+        - local

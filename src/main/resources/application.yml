@@ -1,6 +1,8 @@
+# 기본 설정 파일
 
-
-
+spring:
+  profiles:
+    default: common, local
 
 
 
