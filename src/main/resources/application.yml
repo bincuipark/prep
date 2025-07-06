@@ -1,8 +1,16 @@
+#
 # 기본 설정 파일
+#
+
 
 spring:
+  application:
+    name: PREP
+  # 애플리케이션 실행시 포함할 프로필
   profiles:
-    default: common, local
+    include: common
+    # 활성화할 프로필
+    active: local
 
 
 

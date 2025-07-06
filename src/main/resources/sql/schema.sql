@@ -91,7 +91,7 @@ drop table if exists team_user cascade;
 create table if not exists team_user comment '팀원' (
     team_id                 int                     not null comment '팀 번호',
     user_id                 int                     not null comment '사용자 계정 번호',
-    is_captain              char(1)                 not null comment '팀장 여부'
+    is_captain              char(1)                 not null comment '팀장 여부',
     primary key (team_id, user_id),
     foreign key (team_id) references team (id),
     foreign key (user_id) references user_account (id)

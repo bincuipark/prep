@@ -1,9 +1,48 @@
+#
 # 공통 환경 설정 파일
+#
+
 
 spring:
   config:
     activate:
-      on-profile:
-        - common
+      # 활성화할 프로필 명
+      on-profile: common
+  main:
+    # 스프링부트 런타임 시 출력되는 시작 배너 끄기
+    banner-mode: off
+  # 웹 브라우저 새로고침을 통한 화면 단의 변경된 이력 반영을 위한 타임리프 템플릿 및 정적 리소스 경로 지정
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+    suffix: .html
+    mode: HTML
+    cache: false
+  web:
+    resources:
+      static-locations:
+        - file:src/main/resources/static/
+        - file:src/main/resources/static/css/
+        - file:src/main/resources/static/js/
+        - file:src/main/resources/static/fonts/
+        - file:src/main/resources/static/images/
+      cache:
+        # 캐싱 기간 설정
+        period: 36000
+
+
+mybatis:
+  config-location: classpath:mybatis/config/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mappers/*_mapper.xml
+  type-aliases-package: com.bincui.prep.domain.**.dto
+  type-handlers-package: com.bincui.prep.global.common.mybatis.handler
+
+
+server:
+  servlet:
+    # HTTP 요청 및 응답 인코딩 설정
+    encoding:
+      charset: 'UTF-8'
+      enabled: true
+      force: true
 
 

@@ -1,7 +1,33 @@
-# 기본 환경 설정
+#
+# 로컬 개발 환경 설정 파일
+#
 
 spring:
   config:
     activate:
-      on-profile:
-        - local
+      # 활성화할 프로필 명
+      on-profile: local
+  # H2 인 메모리 데이터베이스 연결 정보 설정
+  datasource:
+    url: jdbc:h2:mem:local_db;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    driver-class-name: org.h2.Driver
+  # 스키마 버전 관리 비활성화
+  flyway:
+    enabled: false
+  # 데이터베이스 초기화 모드
+  sql:
+    init:
+      mode: EMBEDDED  # 내장 데이터베이스 사용시 SQL 스크립트 파일 실행
+      schema-locations:
+        - 'classpath:sql/schema.sql'
+      data-locations:
+        - 'classpath:sql/data.sql'
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+
+
+server:
+  port: 80
